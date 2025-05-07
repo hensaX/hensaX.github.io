@@ -1,271 +1,428 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hendra Sanusi | Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="index.css">
-  <title>My Portfolio | Hendra Sanusi</title>
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 
-<body id="home">
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-primary-700 shadow-md z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="text-white font-bold text-xl">Hendra Sanusi</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-white hover:text-primary-200 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          <a href="#about" class="text-white hover:text-primary-200 px-3 py-2 rounded-md text-sm font-medium">About</a>
+          <a href="#experience"
+            class="text-white hover:text-primary-200 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+          <a href="#projects"
+            class="text-white hover:text-primary-200 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+          <a href="resume.pdf" target="_blank"
+            class="bg-white text-primary-700 hover:bg-primary-100 px-4 py-2 rounded-md text-sm font-medium transition duration-300">Resume</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button class="text-white focus:outline-none" id="mobile-menu-button">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <!-- navbar start -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top">
-    <div class="container ">
-      <a class="navbar-brand" href="#">Hendra Sanusi</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#workxp">Work Exp</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#project">Project</a>
-          </li>
-        </ul>
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden bg-primary-800" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#about" class="text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#experience" class="text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+        <a href="#projects" class="text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+        <a href="resume.pdf" target="_blank"
+          class="bg-white text-primary-700 block px-3 py-2 rounded-md text-base font-medium">Resume</a>
       </div>
     </div>
   </nav>
-  <!-- navbar end-->
 
-  <!-- jumbotron awal-->
-  <section class="jumbotron text-center">
-    <img src="myfoto.jpeg" ald="Hendra Sanusi" width="200" class="rounded-circle img-thumbnail">
-    <h1 class="display-4">Hendra Sanusi</h1>
-    <p class="lead fw-bold">Consultant System | BackEnd Developer </p>
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <a type="button" class="btn btn-warning btn-sm" href="https://www.instagram.com/hendrasanusi/" value="instagram"
-          target="_blank" class="button"><i class="bi bi-instagram"></i></a>
-        <a type="button" class="btn btn-primary btn-sm" href="https://www.facebook.com/hendra.sanusi" value="facebook"
-          target="_blank" class="button"><i class="bi bi-facebook"></i></a>
-        <a type="button" class="btn btn-info btn-sm" href="https://id.linkedin.com/in/hendra-sanusi-9a096798"
-          value="linkedin" target="_blank" class="button"><i class="bi bi-linkedin"></i></a>
-        <a type="button" class="btn btn-danger btn-sm"
-          href="https://www.youtube.com/channel/UC3t0qwaLztdViHYOxC_SHAA/featured" value="youtube" target="_blank"
-          class="button"><i class="bi bi-youtube"></i></a>
-        <a type="button" class="btn btn-dark btn-sm" href="https://github.com/hensaX" value="github" target="_blank"
-          class="button"><i class="bi bi-github"></i></a>
-      </div>
-    </div>
-    <a type="button" class="btn btn-dark btn-sm mt-2" href="resume.pdf" value="github" target="_blank"
-      class="button">Resume</i></a>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#ffffff" fill-opacity="1"
-        d="M0,160L60,154.7C120,149,240,139,360,154.7C480,171,600,213,720,213.3C840,213,960,171,1080,138.7C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-      </path>
-    </svg>
-
-  </section>
-  <!-- jumbotron akhir-->
-
-  <!-- about awal-->
-  <section id="about">
-    <div class="container">
-      <div class="row text-center mb-3">
-        <div class="col">
-          <h2>About Me</h2>
+  <!-- Hero Section -->
+  <section id="home"
+    class="pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Hendra Sanusi</h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6">Full Stack Developer</h2>
+          <p class="text-lg mb-8 text-primary-100">Building innovative solutions in payment systems and HRIS with
+            expertise in backend development and system architecture.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/hendra-sanusi-9a096798" target="_blank"
+              class="social-icon bg-white text-primary-700 p-3 rounded-full hover:bg-primary-100">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/hensaX" target="_blank"
+              class="social-icon bg-white text-primary-700 p-3 rounded-full hover:bg-primary-100">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/hendrasanusi/" target="_blank"
+              class="social-icon bg-white text-primary-700 p-3 rounded-full hover:bg-primary-100">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/hendra.sanusi" target="_blank"
+              class="social-icon bg-white text-primary-700 p-3 rounded-full hover:bg-primary-100">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="row justify-content-center fs-5 text-center">
-        <div class="col-md-4 col-sm-12 mb-4">
-          Full stack developer in payment gateway
-          company, understand open API with
-          SNAP (Standard Nasional Open API)
-        </div>
-        <div class="col-md-4 col-sm-12 mb-4">
-          Experience in Business Analyst / Project
-          Manager, with knowledge payment
-          gateway system, HRIS and tax pph21
-          system and finance system
-        </div>
-      </div>
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#52baff" fill-opacity="1"
-        d="M0,128L60,128C120,128,240,128,360,122.7C480,117,600,107,720,112C840,117,960,139,1080,133.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-      </path>
-    </svg>
-  </section>
-  <!-- about akhir-->
-
-
-  <!-- Workexp awal-->
-  <section id="workxp">
-    <div class="container">
-      <div class="row text-center mb-3">
-        <div class="col">
-          <h2>Work experiences</h2>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="row justify-content-center">
-            <div class="col-md-12">
-              <h5>2022-Now Iforte Payment Infrastructure, PT</h5>
-              <h6>Software Engineer</h6>
-              <h6>Job Desk</h6>
-              <ul>
-                <li>In charge Project direct debit / debit payment with SNAP
-                  (Standard Nasional Open API) from Bank Indonesia with
-                  program language Golang grpc with db postgresql</li>
-                <li>In charge Project disbursement / fund transfer with SNAP
-                  (Standard Nasional Open API) from Bank Indonesia, with db
-                  mongodb </li>
-                <li>In charge development dashboard Front end with react
-                  typescript
-                </li>
-                <li>In charge to create user management dashboard</li>
-                <li>In charge to create gateway open api </li>
-              </ul>
-              <br>
-            </div>
-            <div class="col-md-12">
-              <h5>2012-2022 Realta Chakradarma, PT</h5>
-              <h6> Consultant of HRIS System, as Asst. Manager</h6>
-              <h6>Job Desk</h6>
-              <ul>
-                <li>Leading whole team to make sure all process on schedule .</li>
-                <li>Conduct business and user requirement analysis</li>
-                <li>Supervise Projects to create plan, organize team, Investigate, evaluate and create report project.
-                </li>
-                <li>Coordinate with user business requirement and programmer team in software development project</li>
-                <li>Do basic design with system workflow, use case, ER-Diagram</li>
-                <li>Conduct regular reviews of systems and generating report on efficiencies and improvement areas</li>
-                <li>Perform install & setting HRIS systems, UAT, Training and Guiding </li>
-                <li>Do create DML formula (insert, update, delete), Function, Store Procedure in SQL server, for formula
-                  in
-                  HRIS system </li>
-              </ul>
-              <br>
-            </div>
-            <div class="col-md-12">
-              <h5>2009-2012 Brawijaya Women & Children Hospital </h5>
-              <h6>Finance Staff</h6>
-              <h6>Job Desk</h6>
-              <ul>
-                <li>Manage Petty Cash and Cash on Bank </li>
-                <li>Manage AP Payment</li>
-                <li>Daily Audit income report to cashier team
-                  Ex : EDC Machine report , cash on cashier</li>
-                <li>Manage Billing / invoicing and AR Payment</li>
-              </ul>
-              <br>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <img src="myfoto.jpeg" alt="Hendra Sanusi"
+              class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl">
+            <div
+              class="absolute -bottom-4 -right-4 bg-white text-primary-700 px-4 py-2 rounded-full shadow-md font-medium">
+              Open to Work
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#ffffff" fill-opacity="1"
-        d="M0,160L60,154.7C120,149,240,139,360,154.7C480,171,600,213,720,213.3C840,213,960,171,1080,138.7C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-      </path>
-    </svg>
-
   </section>
 
-
-  <!-- workexp akhir-->
-
-
-  <!-- Project Exp awal-->
-  <section id="project">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col">
-          <h2>My Project</h2>
-        </div>
-      </div>
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-8">
-          <h6>HRIS System</h6>
-          <ul>
-            <li>Link on <a href='https://hris.scanbarcodeku.com'>https://hris.scanbarcodeku.com.</a></li>
-            <li>Purpose for Payroll and PPh21 Tax Calculation</li>
-            <li>Feature Personnel Data, Automatic Payroll Tax Calculation, Dashboard..</li>
-            <li>Notes : This application developed with my colleagues, I made this application to help user HR in
-              Company for calculation of salaries and taxes. My role here is as a Business Analyst, and Front End. This
-              project was completed in 4 months.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">Preview Project</div>
-        <div class="row justify-content-center ">
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <img src="img/01.jpg" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <p class="card-text">Payroll Master List.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <img src="img/02.jpg" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <p class="card-text">Dashboard.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <img src="img/03.jpg" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <p class="card-text">Personnel Data.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <div class="card">
-              <img src="img/04.jpg" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <p class="card-text">Add Variable Payroll Component.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-primary-600 mx-auto"></div>
       </div>
 
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">Who I Am</h3>
+          <p class="text-gray-600 mb-6">
+            I'm a passionate Full Stack Developer with expertise in payment gateway systems and HRIS solutions.
+            With over a decade of experience in system consulting and software development, I specialize in creating
+            robust, scalable applications that solve real business problems.
+          </p>
+          <p class="text-gray-600 mb-6">
+            My technical skills span across backend development with Golang, database design with PostgreSQL and
+            MongoDB,
+            and frontend development with React. I'm also experienced in implementing open API standards like SNAP
+            (Standard Nasional Open API) from Bank Indonesia.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Golang</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Java</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Javascript</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">ReactTs</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">VueJs</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">PostgresSql</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">MySql</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Mongodb</span>
+          </div>
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+            <h4 class="text-xl font-semibold text-gray-800 mb-6">My Expertise</h4>
 
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Backend Development</span>
+                <span class="text-primary-600">90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Frontend Development</span>
+                <span class="text-primary-600">75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Standard Nasional Open API Regulation</span>
+                <span class="text-primary-600">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-700 font-medium">Tax Payroll pph21</span>
+                <span class="text-primary-600">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#0d6efd" fill-opacity="1"
-        d="M0,320L80,304C160,288,320,256,480,229.3C640,203,800,181,960,176C1120,171,1280,181,1360,186.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-      </path>
-    </svg>
   </section>
-  <!-- Project Exp akhir-->
 
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Work Experience</h2>
+        <div class="w-20 h-1 bg-primary-600 mx-auto"></div>
+      </div>
 
-  <footer class="bg-primary text-white text-center pb-2">
-    <p>Create by <a href="google.com" class="text-white fw-bold">Hendra Sanusi</a></p>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-1/2 w-1 h-full bg-primary-200 transform -translate-x-1/2 hidden md:block"></div>
+
+        <!-- Timeline items -->
+        <div class="space-y-8">
+          <!-- Item 1 -->
+          <div class="relative md:flex justify-between items-center">
+            <div class="md:w-5/12 mb-6 md:mb-0 md:pr-8 text-right">
+              <h3 class="text-xl font-bold text-gray-800">Software Engineer</h3>
+              <p class="text-primary-600 font-medium">2022 - Present</p>
+              <p class="text-gray-600">Iforte Payment Infrastructure, PT</p>
+            </div>
+            <div
+              class="hidden md:flex justify-center items-center w-10 h-10 rounded-full bg-primary-600 text-white absolute left-1/2 transform -translate-x-1/2">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="md:w-5/12 md:pl-8">
+              <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                  <li>Built disbursement/fund transfer system with Standard Nasional Open API</li>
+                  <li>Developed direct debit/debit payment system with Standard Nasional Open API using Golang gRPC and
+                    PostgreSQL</li>
+                  <li>Created dashboard frontend for merchant and internal user with React TypeScript</li>
+                  <li>Created Gateway for merchant and internal </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="relative md:flex justify-between items-center flex-row-reverse">
+            <div class="md:w-5/12 mb-6 md:mb-0 md:pl-8 text-left">
+              <h3 class="text-xl font-bold text-gray-800">Consultant of HRIS System</h3>
+              <p class="text-primary-600 font-medium">2012 - 2022</p>
+              <p class="text-gray-600">Realta Chakradarma, PT</p>
+            </div>
+            <div
+              class="hidden md:flex justify-center items-center w-10 h-10 rounded-full bg-primary-600 text-white absolute left-1/2 transform -translate-x-1/2">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="md:w-5/12 md:pr-8">
+              <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                  <li>Supervised projects including planning, team organization, and reporting</li>
+                  <li>Conducted business and user requirement analysis</li>
+                  <li>Created system workflows, use cases, and ER diagrams</li>
+                  <li>Coordinated between business users and development team</li>
+                  <li>Participate in coding create reporting and change formula payroll payment and tax</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="relative md:flex justify-between items-center">
+            <div class="md:w-5/12 mb-6 md:mb-0 md:pr-8 text-right">
+              <h3 class="text-xl font-bold text-gray-800">Finance Staff</h3>
+              <p class="text-primary-600 font-medium">2009 - 2012</p>
+              <p class="text-gray-600">Brawijaya Women & Children Hospital</p>
+            </div>
+            <div
+              class="hidden md:flex justify-center items-center w-10 h-10 rounded-full bg-primary-600 text-white absolute left-1/2 transform -translate-x-1/2">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="md:w-5/12 md:pl-8">
+              <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300">
+                <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                  <li>Managed petty cash and bank transactions</li>
+                  <li>Handled accounts payable and accounts receivable</li>
+                  <li>Audited daily income reports including EDC machine reports</li>
+                  <li>Managed billing and invoicing processes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Personal Projects</h2>
+        <div class="w-20 h-1 bg-primary-600 mx-auto"></div>
+      </div>
+
+      <div class="mb-12">
+        <div class="bg-gray-50 p-8 rounded-lg shadow-md mb-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">HRIS System</h3>
+          <p class="text-gray-600 mb-6">
+            A comprehensive HR Information System designed for payroll processing and PPh21 tax calculation,
+            featuring personnel data management, automated payroll tax calculations, and insightful dashboards.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-6">
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">React</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">SQL Server</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">Business
+              Analysis</span>
+            <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium">System
+              Design</span>
+          </div>
+          <!-- <a href="https://hris.scanbarcodeku.com" target="_blank"
+            class="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium">
+            View Project <i class="fas fa-external-link-alt ml-2"></i>
+          </a> -->
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
+            <img src="img/01.jpg" alt="Payroll Master List" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Payroll Master List</h4>
+              <p class="text-gray-600 text-sm">Comprehensive view of all payroll records with filtering capabilities</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
+            <img src="img/02.jpg" alt="Dashboard" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Dashboard</h4>
+              <p class="text-gray-600 text-sm">Interactive dashboard with key HR metrics and visualizations</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
+            <img src="img/03.jpg" alt="Personnel Data" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Personnel Data</h4>
+              <p class="text-gray-600 text-sm">Detailed employee records with comprehensive information</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
+            <img src="img/04.jpg" alt="Variable Payroll Component" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-gray-800 mb-2">Variable Payroll Component</h4>
+              <p class="text-gray-600 text-sm">Flexible system for managing dynamic payroll components</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary-800 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-xl font-bold">Hendra Sanusi</h3>
+          <p class="text-primary-200">Full Stack Developer & System Consultant</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://www.linkedin.com/in/hendra-sanusi-9a096798" target="_blank"
+            class="text-primary-200 hover:text-white">
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+          <a href="https://github.com/hensaX" target="_blank" class="text-primary-200 hover:text-white">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="https://www.instagram.com/hendrasanusi/" target="_blank" class="text-primary-200 hover:text-white">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://www.facebook.com/hendra.sanusi" target="_blank" class="text-primary-200 hover:text-white">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-primary-700 mt-6 pt-6 text-center text-primary-300 text-sm">
+        <p>&copy; 2023 Hendra Sanusi. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-  <script src=index.js></script>
-  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
